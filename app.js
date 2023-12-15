@@ -10,14 +10,14 @@ const port = 3000;
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-const SPOTIFY_CLIENT_ID = '1027a6451c8543919e5d8bb3fed8acf6';
-const SPOTIFY_CLIENT_SECRET = '10c61a8cef9b4e8ab81b93c595dbf648';
-const SPOTIFY_CALLBACK_URL = 'https://5cf0-88-242-67-117.ngrok-free.app/callback';
+const SPOTIFY_CLIENT_ID = 'spotify-client-id';
+const SPOTIFY_CLIENT_SECRET = 'spotify-client-secret';
+const SPOTIFY_CALLBACK_URL = 'https://localhost:3000/callback';
 
 const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: '10377920Efe',
+  password: '',
   database: 'spotify',
 });
 
