@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matched Users</title>
+    <style>
+        .user-container {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Matched Users</h1>
+
+    <% matchedUsers.forEach(matchedUser => { %>
+        <div class="user-container">
+            <h2><%= matchedUser.username %></h2>
+            <img src="<%= matchedUser.otherUserProfilePic %>" alt="Profile Picture" style="max-width: 100px; max-height: 100px;">
+            <p>Spotify Profile: <a href="<%= matchedUser.spotifyProfileLink %>" target="_blank">Open Spotify Profile</a></p>
+            <h3>Match Percentage: <%= Math.round(matchedUser.overallMatchPercentage) %>%</h3>
+
+            <h3>Music Preferences</h3>
+            <ul>
+                <% matchedUser.otherUserGenres.forEach(genre => { %>
+                    <li><%= genre %></li>
+                <% }); %>
+            </ul>
+
+            <h3>Top Artists</h3>
+            <ul>
+                <% matchedUser.otherUserTopArtists.forEach(artist => { %>
+                    <li><%= artist %></li>
+                <% }); %>
+            </ul>
+
+            <h3>Top Tracks</h3>
+            <ul>
+                <% matchedUser.otherUserTopTracks.forEach(track => { %>
+                    <li><%= track.name %></li>
+                <% }); %>
+            </ul>
+        </div>
+    <% }); %>
+</body>
+</html>
